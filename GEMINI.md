@@ -46,3 +46,16 @@
 - **기획 및 검토**: 복합 작업 전 `/plan` 또는 상호 인터뷰(`/grill-me`)를 통해 요구사항 구체화
 - **자율 작업**: 검증된 자동화 및 장시간 작업은 `/goal` 커맨드로 목표 지향적 자율 실행
 - **지속화**: 재사용 가능한 자동화 절차는 `.agents/skills/`에 커스텀 스킬로 등록
+
+---
+
+## 5. LabVIEW 자동화 표준 (LabVIEW Automation)
+
+- **설치 위치**: `C:\Program Files (x86)\National Instruments\LabVIEW 2025\LabVIEW.exe`
+- **CLI 도구**: `C:\Program Files (x86)\National Instruments\Shared\LabVIEW CLI\LabVIEWCLI.exe`
+- **제어 라이브러리**: `src/automation/labview_client.py` (ActiveX/COM 기반)
+- **실행 전 수칙**:
+  - `LabVIEWClient.is_process_running()`으로 현재 실행 상태 선제 점검
+  - VI 실행 시 반드시 입력값과 반환받을 인디케이터 명칭을 지정하고 타임아웃을 설정
+  - 모든 자동화 로그는 `logs/labview_automation.log`에 자동 기록됨
+
